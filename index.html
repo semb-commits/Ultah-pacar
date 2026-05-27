@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sayang</title>
+<style>
+    * { margin:0; padding:0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  @keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  .card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    max-width: 400px;
+    display: none;
+  }
+  .card.show { display: block; animation: fadeIn 1.5s ease; }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  h1 { font-size: 2.2em; margin-bottom: 15px; }
+  p { font-size: 1.1em; margin-bottom: 20px; line-height: 1.6; }
+  img { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin: 20px 0; border: 4px solid #fff; }
+  button {
+    padding: 14px 35px;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    color: #ff6b81;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s;
+  }
+  button:hover { transform: scale(1.05); }
+  .start-screen h2 { font-size: 1.8em; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<div class="start-screen" id="start">
+  <h2>Ketuk buat buka ucapan 🎁</h2>
+  <button onclick="playMusic()">Buka</button>
+</div>
+
+<div class="card" id="card">
+  <h1>Happy Birthday Sayang 🎂</h1>
+  <p>Maaf aku gak bisa dateng besok. Tapi gak ada hari pun yang bikin aku berhenti sayang sama kamu.</p>
+  <img src="foto-dia.jpg" alt="Foto dia">
+  <p>Semoga semua yang kamu minta tahun ini dikabulin. Aku janji bakal ganti semua ini pas ada rejeki. Aku sayang kamu ❤️</p>
+</div>
+
+<audio id="lagu" loop>
+  <source src="happy-birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic() {
+  document.getElementById('start').style.display = 'none';
+  document.getElementById('card').classList.add('show');
+  document.getElementById('lagu').play();
+}
+</script>
+
+</body>
+  </html>
